@@ -37,9 +37,9 @@ int main()
 
   // puts関数をよびだす
   builder.CreateCall(putsFunc, helloWorld);
-  // return;
-  builder.CreateRetVoid();
+  // return 0;
+  builder.CreateRet(llvm::ConstantInt::get(builder.getInt32Ty(), 0));
 
-  // できたアセンブリを標準出力にだす。
+  // できたアセンブリを標準エラー出力にだす。
   module->dump();
 }
